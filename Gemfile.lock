@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    mycert (0.1.0)
+    mycert (0.0.0.pre.dev)
       thor (~> 1.2.1)
 
 GEM

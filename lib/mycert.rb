@@ -13,11 +13,16 @@ module Mycert
 
   class CLI < Thor
     class_option :name, aliases: :n, default: 'mycert', type: :string, desc: 'RootCA Name'
-    class_optinon :expire, aliases: :e, default: 365, type: :numeric, desc: 'CA expire day'
+    class_option :expire, aliases: :e, default: 365, type: :numeric, desc: 'CA expire day'
     class_option :pkcs12_password, default: '', type: :string, desc: 'Password for PKCS12'
 
     desc 'all', ''
     def all; end
+
+    desc 'common', ''
+    def common
+      puts make :name, :expire.to_s.to_i
+    end
 
     desc 'android', ''
     def android; end
