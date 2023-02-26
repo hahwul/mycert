@@ -2,12 +2,12 @@
 
 require 'openssl'
 
-def make(_name, day)
+def make(name, day)
   root_key = OpenSSL::PKey::RSA.new 2048
   root_ca = OpenSSL::X509::Certificate.new
   root_ca.version = 2
   root_ca.serial = 1
-  root_ca.subject = OpenSSL::X509::Name.parse '/DC=org/DC=ruby-lang/CN=Ruby CA'
+  root_ca.subject = OpenSSL::X509::Name.parse "/DC=org/DC=ruby-lang/CN=#{name}"
   root_ca.issuer = root_ca.subject
   root_ca.public_key = root_key.public_key
   root_ca.not_before = Time.now
